@@ -8,7 +8,7 @@ This project manages a fixed memory pool of 1024 bytes. The free space is stored
 
 You need g++ installed.
 
-```
+``` bash
 g++ -o allocator allocator.cpp
 ./allocator
 ```
