@@ -1,10 +1,9 @@
 # Explanation of the Data Structure
 
-The allocator manages one big block of 1024 bytes. Instead of remembering which bytes are used, it remembers which parts are free. All the free parts are stored in a linked list called the free list. Any part of memory that is not in the free list is treated as allocated.
+The allocator manages one big block of 1024 bytes. Instead of remembering which bytes are used, it remember which parts are free. All the free parts are stored in a linked list called free list. Any part of memory that is not in the free list is treated as allocated.
 
 ## FreeBlock class
-
-Each node of the list is a FreeBlock object. It has three things:
+Each node of the list is a FreeBlock object. It has three things:-
 
 1. start, which tells where the free region begins inside the pool
 2. size, which tells how many bytes are free from that point
@@ -31,7 +30,6 @@ largestFreeBlock walks the list and keeps track of the biggest size it has seen.
 All four functions just travel through the list one node at a time, so they are simple loops.
 
 ## Why a linked list
+In the next deliverables, free blocks will be created and removed all the time and when memory is allocated and freed. A linked list  insert or remove a block anywhere without shifting other elements like an array would need. Also, when a block is bigger than the request size, we can just change its start and size to split it, which is very easy with this structure.
 
-In the next deliverables, free blocks will be created and removed all the time when memory is allocated and freed. A linked list lets us insert or remove a block anywhere without shifting other elements like an array would need. Also, when a block is bigger than the requested size, we can just change its start and size to split it, which is very easy with this structure.
-
-One more point is that largest free block is different from total free memory. After many allocations and frees the memory becomes fragmented. The total free memory can be big but if every single block is small, a large allocation will still fail. That is why both functions are needed.
+One more point is that largest free block is different from total free memory. After many allocation and free the memory becomes disconnected. The total free memory can be big but if the every single block is small, a large allocation will still fail. That is why both functions are needed.

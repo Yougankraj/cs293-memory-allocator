@@ -17,7 +17,7 @@
         FreeBlock* head;          
 
     public:
-        // in the beginning the whole memory is free so the list has only one node covering everything
+        // in the beginning the whole memory is free so the list has only one node cover everything
         MemoryAllocator(){
             head = new FreeBlock;
             head->start = 0;
