@@ -26,7 +26,7 @@
         }
 
         // print the free list
-        void displayFreeList(){
+        void display_FreeList(){
             cout << "Free List: ";
             FreeBlock* temp = head;
             while (temp != NULL){
@@ -37,7 +37,7 @@
         }
 
         // count how many free blocks are in the list
-        int countFreeBlocks(){
+        int count_FreeBlocks(){
             int count = 0;
             FreeBlock* temp = head;
             while (temp != NULL){
@@ -48,7 +48,7 @@
         }
 
         // add up the size of every free block
-        int totalFreeMemory(){
+        int total_FreeMemory(){
             int total = 0;
             FreeBlock* temp = head;
             while (temp != NULL){
@@ -59,7 +59,7 @@
         }
 
         // find the biggest single free block
-        int largestFreeBlock(){
+        int largest_FreeBlock(){
             int largest = 0;
             FreeBlock* temp = head;
             while (temp != NULL){
@@ -79,12 +79,12 @@
         MemoryAllocator allocator;
 
         cout << "Initial state of memory: " << endl;
-        allocator.displayFreeList();
+        allocator.display_FreeList();
         cout << endl;
 
-        cout << "Number of free blocks: " << allocator.countFreeBlocks() << endl;
-        cout << "Total free memory: " << allocator.totalFreeMemory() << " bytes" << endl;
-        cout << "Largest free block: " << allocator.largestFreeBlock() << " bytes" << endl;
+        cout << "Number of free blocks: " << allocator.count_FreeBlocks() << endl;
+        cout << "Total free memory: " << allocator.total_FreeMemory() << " bytes" << endl;
+        cout << "Largest free block: " << allocator.largest_FreeBlock() << " bytes" << endl;
         
         return 0;
     }

@@ -35,7 +35,7 @@ public:
                 // remember where this block starts, this is what we return
                 int allocStart = temp->start;
                 if (temp->size == size){
-                    // exact match, remove this node from the list
+                    // exact match remove this node from the list
                     if (prev == NULL){
                         head = temp->next;
                     }
@@ -72,7 +72,7 @@ public:
     }
 
     // count how many free blocks are in the list
-    int countFreeBlocks(){
+    int count_FreeBlocks(){
         int count = 0;
         FreeBlock* temp = head;
         while (temp != NULL){
@@ -83,7 +83,7 @@ public:
     }
 
     // add up the size of every free block
-    int totalFreeMemory(){
+    int total_FreeMemory(){
         int total = 0;
         FreeBlock* temp = head;
         while (temp != NULL){
@@ -94,7 +94,7 @@ public:
     }
 
     // find the biggest single free block
-    int largestFreeBlock(){
+    int largest_FreeBlock(){
         int largest = 0;
         FreeBlock* temp = head;
         while (temp != NULL){
@@ -146,9 +146,9 @@ int main(){
     allocator.displayFreeList();
     cout << endl;
 
-    cout << "Number of free blocks : " << allocator.countFreeBlocks() << endl;
-    cout << "Total free memory     : " << allocator.totalFreeMemory() << " bytes" << endl;
-    cout << "Largest free block    : " << allocator.largestFreeBlock() << " bytes" << endl;
+    cout << "Number of free blocks : " << allocator.count_FreeBlocks() << endl;
+    cout << "Total free memory     : " << allocator.total_FreeMemory() << " bytes" << endl;
+    cout << "Largest free block    : " << allocator.largest_FreeBlock() << " bytes" << endl;
 
     return 0;
 }
